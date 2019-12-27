@@ -21,18 +21,6 @@
 		Course: <span th:text="${courseSubmission.course.name}"> Course
 			name</span> Grade : <span th:text="${courseSubmission.grade}"> Course
 			grade</span>
-			
-		<h3>Give feedback about the course</h3>
-		<form action="#" th:action="@{/course/feedback/{id}(id=${courseSubmission.course.id})}" method="POST">
-			<p>
-				<label for="feedback">Feedback: </label>:
-				<input type="text" name="feedback" id="feedback" />
-			</p>
-			<p>
-				<input type="submit" value="Submit feedback" />
-			</p>
-		</form>
-
 	</div>
 
 

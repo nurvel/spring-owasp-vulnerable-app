@@ -68,6 +68,8 @@ public class CyberSecurityBaseProjectApplication {
 		course2.getFeedBack().add("STUDENT: Teacher got good jokes");
 		course2.getFeedBack().add("TEACHER: Thank you :)");
 		course2.getFeedBack().add("STUDENT: Web course in MOOC was very nice");
+		// XSS enabled in thymeleaf - one can insert JavaScript to page
+		course2.getFeedBack().add("STUDENT: I learned how to haxor :) <script>console.log('All your base are belong to us')</script>");
 		course2.getAccounts().add(student1);
 		courseRepository.save(course2);
 
