@@ -8,10 +8,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import sec.project.domain.Account;
+import sec.project.domain.Course;
 import sec.project.repository.AccountRepository;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import sec.project.repository.CourseRepository;
+import sec.project.repository.Grade;
+import sec.project.repository.GradeRepository;
 
 @SpringBootApplication
 public class CyberSecurityBaseProjectApplication {
@@ -24,6 +28,12 @@ public class CyberSecurityBaseProjectApplication {
 	AccountRepository accountRepository;
 
 	@Autowired
+	CourseRepository courseRepository;
+
+	@Autowired
+	GradeRepository gradeRepository;
+
+	@Autowired
 	PasswordEncoder passwordEncoder;
 
 	@EventListener(ApplicationReadyEvent.class)
@@ -33,11 +43,39 @@ public class CyberSecurityBaseProjectApplication {
 		List<String> studentAuths = Arrays.asList(new String[] { "STUDENT" });
 		List<String> teacherAuths = Arrays.asList(new String[] { "TEACHER" });
 
-		Account student1 = new Account("user", passwordEncoder.encode(password), studentAuths);
+		Account student1 = new Account();
+		student1.setUsername("student");
+		student1.setPassword(password);
+		student1.setAuthorities(studentAuths);
 		accountRepository.save(student1);
 
-		Account teacher1 = new Account("admin", passwordEncoder.encode(password), teacherAuths);
+		Account teacher1 = new Account();
+		teacher1.setUsername("teacher");
+		teacher1.setPassword(password);
+		teacher1.setAuthorities(teacherAuths);
 		accountRepository.save(teacher1);
+
+		Course course1 = new Course();
+		course1.setName("TIRA");
+		course1.getAccounts().add(student1);
+		courseRepository.save(course1);
+
+		Course course2 = new Course();
+		course2.setName("WEPA");
+		course2.getAccounts().add(student1);
+		courseRepository.save(course2);
+
+		Grade grade1 = new Grade();
+		grade1.setAccount(student1);
+		grade1.setCourse(course1);
+		grade1.setGrade(2);
+		gradeRepository.save(grade1);
+
+		Grade grade2 = new Grade();
+		grade2.setAccount(student1);
+		grade2.setCourse(course2);
+		grade2.setGrade(3);
+		gradeRepository.save(grade2);
 
 	}
 
