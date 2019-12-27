@@ -7,6 +7,15 @@ In the first course project, your task is to create a web application that has a
 Starter code for the project is provided on Github at https://github.com/cybersecuritybase/cybersecuritybase-project.
 
 
+/course/{id}
+=> listaa opiskelija ja arvosanat
+
+/course/{id}/grade/{studentid}
+
+
+/student/{id}
+=> listaa opiskelijan kurssit ja arvosanat
+
 ## Project essay
 
 LINK: <link to repo>
@@ -20,9 +29,10 @@ operating systems, frameworks, libraries, and applications be securely configure
 be patched and upgraded in a timely fashion.
 
 #How the security flaw behaves in the app
-H2 data base URL not secured and using deafult password
-#How to fix the security flaw in the app
+H2 data base URL not secured and using default password
 
+#How to fix the security flaw in the app
+Change default password to H2
 
 ##FLAW 2: A7:2017-Cross-Site Scripting (XSS)
 #OWASP description of the security flaw:
@@ -32,6 +42,8 @@ browser API that can create HTML or JavaScript. XSS allows attackers to execute 
 victim’s browser which can hijack user sessions, deface web sites, or redirect the user to
 malicious sites.
 #How the security flaw behaves in the app
+IDEA: thymeleaf salli XSS inserttaus HOX: mikä hyöty.. Ihan vaan kiusanteko tms?
+
 #How to fix the security flaw in the app
 
 
@@ -44,8 +56,9 @@ protection, such as encryption at rest or in transit, and requires special preca
 exchanged with the browser.
 
 #How the security flaw behaves in the app
-idea: näkee tietoja URL arvailulla jota ei pitäisi?
+idea: näkee tietoja URL arvailulla jota ei pitäisi? --> kaikki en oppilaiden tiedot
 #How to fix the security flaw in the app
+autorisointi urliin /
 
 ##FLAW 4: A10:2017-Insufficient Logging & Monitoring
 #OWASP description of the security flaw:
@@ -63,4 +76,17 @@ privileges as the application. If a vulnerable component is exploited, such an a
 serious data loss or server takeover. Applications and APIs using components with known
 vulnerabilities may undermine application defenses and enable various attacks and impacts.
 #How the security flaw behaves in the app
+harjoituksesta joku missä oli tää?
+
 #How to fix the security flaw in the app
+
+
+
+-- SQL injection =>  Hello insert
+=> drop table?
+
+INSERT INTO signup (address, name) VALUES ('testijuttu', 'moikka')
+
+INSERT INTO signup (address, name) VALUES ('testijuttu', '
+moikka') ; DROP TABLE signup; --
+')

@@ -15,23 +15,41 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+	@Autowired
+	private UserDetailsService userDetailsService;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        // no real security at the moment
-        http.authorizeRequests()
-                .anyRequest().permitAll();
-    }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
+		http.csrf().disable();
+		http.headers().frameOptions().sameOrigin();
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+		http.authorizeRequests()
+				.antMatchers("/")
+				.permitAll()
+				.antMatchers("/createnewaccount")
+				.permitAll()
+				.antMatchers("/h2-console", "/h2-console/**")
+				.permitAll()
+				.anyRequest()
+				.authenticated();
+		
+		http.formLogin().permitAll().and()
+			.logout().permitAll()
+			.logoutUrl("/logout")
+			.logoutSuccessUrl("/index");
+
+//		// no real security at the moment
+//		http.authorizeRequests().anyRequest().permitAll();
+	}
+
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+	}
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 }
