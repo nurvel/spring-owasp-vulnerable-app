@@ -18,9 +18,9 @@ Student id:
 	<span th:text="${account.id}"> Name </span>
 
 <h2> Courses and grades: </h2>
-	<div th:each="grade : ${account.grades}">
-		Course: <span th:text="${grade.course.name}"> Course name</span>
- 		Grade : <span th:text="${grade.grade}"> Course grade</span>  
+	<div th:each="courseSubmission : ${account.courseSubmissions}">
+		Course: <span th:text="${courseSubmission.course.name}"> Course name</span>
+ 		Grade : <span th:text="${courseSubmission.grade}"> Course grade</span>  
 	</div>
 
 

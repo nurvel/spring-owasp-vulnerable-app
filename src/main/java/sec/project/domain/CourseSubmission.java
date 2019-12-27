@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Grade extends AbstractPersistable<Long> {
+public class CourseSubmission extends AbstractPersistable<Long> {
 
 	@ManyToOne 
 	private Course course;  

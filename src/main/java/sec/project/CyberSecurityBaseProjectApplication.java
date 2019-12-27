@@ -12,10 +12,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import sec.project.domain.Account;
 import sec.project.domain.Course;
-import sec.project.domain.Grade;
+import sec.project.domain.CourseSubmission;
 import sec.project.repository.AccountRepository;
 import sec.project.repository.CourseRepository;
-import sec.project.repository.GradeRepository;
+import sec.project.repository.CourseSubmissionRepository;
 
 @SpringBootApplication
 public class CyberSecurityBaseProjectApplication {
@@ -31,7 +31,7 @@ public class CyberSecurityBaseProjectApplication {
 	CourseRepository courseRepository;
 
 	@Autowired
-	GradeRepository gradeRepository;
+	CourseSubmissionRepository courseSubmissionRepository;
 
 	@Autowired
 	PasswordEncoder passwordEncoder;
@@ -65,17 +65,17 @@ public class CyberSecurityBaseProjectApplication {
 		course2.getAccounts().add(student1);
 		courseRepository.save(course2);
 
-		Grade grade1 = new Grade();
+		CourseSubmission grade1 = new CourseSubmission();
 		grade1.setAccount(student1);
 		grade1.setCourse(course1);
 		grade1.setGrade(2);
-		gradeRepository.save(grade1);
+		courseSubmissionRepository.save(grade1);
 
-		Grade grade2 = new Grade();
+		CourseSubmission grade2 = new CourseSubmission();
 		grade2.setAccount(student1);
 		grade2.setCourse(course2);
 		grade2.setGrade(3);
-		gradeRepository.save(grade2);
+		courseSubmissionRepository.save(grade2);
 
 	}
 

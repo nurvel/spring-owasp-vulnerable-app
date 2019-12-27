@@ -25,7 +25,7 @@ public class Course extends AbstractPersistable<Long> {
 	private List<Account> accounts = new ArrayList<>();
 
 	@OneToMany (mappedBy = "course")
-	private List<Grade> grades = new ArrayList<>();
+	private List<CourseSubmission> grades = new ArrayList<>();
 	
 //	@ManyToOne
 //	private Grade grade;
