@@ -3,7 +3,9 @@ package sec.project.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -24,10 +26,10 @@ public class Course extends AbstractPersistable<Long> {
 	@ManyToMany
 	private List<Account> accounts = new ArrayList<>();
 
-	@OneToMany (mappedBy = "course")
+	@OneToMany(mappedBy = "course")
 	private List<CourseSubmission> grades = new ArrayList<>();
-	
-//	@ManyToOne
-//	private Grade grade;
-//	
+
+	@ElementCollection
+	private List<String> feedBack = new ArrayList<>();
+
 }

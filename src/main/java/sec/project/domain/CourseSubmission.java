@@ -20,10 +20,7 @@ import lombok.NoArgsConstructor;
 public class CourseSubmission extends AbstractPersistable<Long> {
 
 	@ManyToOne 
-	private Course course;  
-
-//	@OneToMany (mappedBy ="grade")
-//	private List<Course> courses = new ArrayList<>();
+	private Course course;
 	
 	@ManyToOne
 	private Account account;

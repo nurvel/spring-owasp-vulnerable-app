@@ -12,15 +12,27 @@
 
 	<h1>Student information</h1>
 
-Student name: 
-	<span th:text="${account.name}"> Name </span>
-Student id: 
+	Student name:
+	<span th:text="${account.name}"> Name </span> Student id:
 	<span th:text="${account.id}"> Name </span>
 
-<h2> Courses and grades: </h2>
+	<h2>Courses and grades:</h2>
 	<div th:each="courseSubmission : ${account.courseSubmissions}">
-		Course: <span th:text="${courseSubmission.course.name}"> Course name</span>
- 		Grade : <span th:text="${courseSubmission.grade}"> Course grade</span>  
+		Course: <span th:text="${courseSubmission.course.name}"> Course
+			name</span> Grade : <span th:text="${courseSubmission.grade}"> Course
+			grade</span>
+			
+		<h3>Give feedback about the course</h3>
+		<form action="#" th:action="@{/course/feedback/{id}(id=${courseSubmission.course.id})}" method="POST">
+			<p>
+				<label for="feedback">Feedback: </label>:
+				<input type="text" name="feedback" id="feedback" />
+			</p>
+			<p>
+				<input type="submit" value="Submit feedback" />
+			</p>
+		</form>
+
 	</div>
 
 

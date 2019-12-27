@@ -57,11 +57,17 @@ public class CyberSecurityBaseProjectApplication {
 
 		Course course1 = new Course();
 		course1.setName("TIRA");
+		course1.getFeedBack().add("STUDENT: Very nice course, I learned a lot");
+		course1.getFeedBack().add("STUDENT: It was very hard, since i did not know the content before");
+		course1.getFeedBack().add("TEACHER: Usually you learn during the course");
 		course1.getAccounts().add(student1);
 		courseRepository.save(course1);
 
 		Course course2 = new Course();
 		course2.setName("WEPA");
+		course2.getFeedBack().add("STUDENT: Teacher got good jokes");
+		course2.getFeedBack().add("TEACHER: Thank you :)");
+		course2.getFeedBack().add("STUDENT: Web course in MOOC was very nice");
 		course2.getAccounts().add(student1);
 		courseRepository.save(course2);
 

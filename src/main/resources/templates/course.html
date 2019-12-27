@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/template :: head(titletext='Courses')">
+</head>
+<body>
+
+
+	<div th:replace="fragments/template :: navbar"></div>
+
+
+	<h1>Course feedback and discussion</h1>
+
+	<div th:each="course : ${courses}">
+		<h2>
+			<span th:text="${course.name}"> Course </span>
+		</h2>
+
+		<h3>Discussion about the course</h3>
+		<div th:each="feedback : ${course.feedBack}">
+			<!-- th:utext tag enables XSS (th:text should be user) -->
+			<span th:utext="${feedback}">feedback text</span>
+		</div>
+
+
+		<form action="#" th:action="@{/course/feedback/{id}(id=${course.id})}"
+			method="POST">
+			<p>
+				<label for="feedback">Feedback: </label>: <input type="text"
+					name="feedback" id="feedback" />
+			</p>
+			<p>
+				<input type="submit" value="Submit feedback" />
+			</p>
+		</form>
+
+	</div>
+
+
+
+
+</body>
+</html>
