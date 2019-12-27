@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Grade system</title>
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/template :: head(titletext='Student page')">
 </head>
 <body>
 
@@ -10,6 +11,9 @@
 
 
 	<h1>Student information</h1>
+
+	<span th:text="${account.name}"> Name </span>
+	<span th:text="${account.id}"> Name </span>
 
 
 

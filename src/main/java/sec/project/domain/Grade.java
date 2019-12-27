@@ -1,4 +1,4 @@
-package sec.project.repository;
+package sec.project.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import sec.project.domain.Account;
-import sec.project.domain.Course;
 
 @Entity
 @Data

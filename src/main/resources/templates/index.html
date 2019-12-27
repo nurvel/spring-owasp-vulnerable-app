@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Grade system</title>
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/template :: head(titletext='Grade system')">
 </head>
 <body>
 
-	<div th:replace="fragments/template :: navbar"></div>
 
+	<div th:replace="fragments/template :: navbar"></div>
 
 	<h1>Welcome to grade system</h1>
 

@@ -12,9 +12,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import sec.project.domain.Account;
 import sec.project.domain.Course;
+import sec.project.domain.Grade;
 import sec.project.repository.AccountRepository;
 import sec.project.repository.CourseRepository;
-import sec.project.repository.Grade;
 import sec.project.repository.GradeRepository;
 
 @SpringBootApplication
@@ -39,18 +39,18 @@ public class CyberSecurityBaseProjectApplication {
 	@EventListener(ApplicationReadyEvent.class)
 	public void initAfterStartup() {
 
-		String password = "salasana";
+		String password = passwordEncoder.encode("salasana");
 		List<String> studentAuths = Arrays.asList(new String[] { "STUDENT" });
 		List<String> teacherAuths = Arrays.asList(new String[] { "TEACHER" });
 
 		Account student1 = new Account();
-		student1.setUsername("student");
+		student1.setName("student");
 		student1.setPassword(password);
 		student1.setAuthorities(studentAuths);
 		accountRepository.save(student1);
 
 		Account teacher1 = new Account();
-		teacher1.setUsername("teacher");
+		teacher1.setName("teacher");
 		teacher1.setPassword(password);
 		teacher1.setAuthorities(teacherAuths);
 		accountRepository.save(teacher1);

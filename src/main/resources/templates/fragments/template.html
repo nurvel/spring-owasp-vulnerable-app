@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Grade system</title>
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head(titletext)" lang="en">
+<title th:text="${titletext}">Title</title>
 </head>
 <body>
 
 	<div th:fragment="navbar">
 		<nav>
-			<a class="nav-link" href="/">Home</a>
-			<a class="nav-link" href="/student">My grades</a>
-			<a class="nav-link" href="/grades">Grade student</a>
-			<a class="nav-link" href="/login">Login</a>
-			<a class="nav-link" href="/logout">Logout</a>
+			<a class="nav-link" href="/">Home</a> 
+			<span sec:authorize="isAuthenticated()">
+				<a class="nav-link" th:href="@{/student/{id}(id=${account.id})}">Mygrades</a>
+				<a class="nav-link" href="/grades">Grade student</a>
+				<a class="nav-link" href="/logout">Logout</a>
+			</span>
+			<span sec:authorize="isAnonymous()">
+				<a class="nav-link" href="/login">Login</a>
+			</span>
 		</nav>
 	</div>
 

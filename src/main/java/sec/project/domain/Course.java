@@ -12,7 +12,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import sec.project.repository.Grade;
 
 @Entity
 @Data

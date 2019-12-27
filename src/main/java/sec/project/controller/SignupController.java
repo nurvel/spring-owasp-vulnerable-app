@@ -2,17 +2,18 @@ package sec.project.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import sec.project.domain.Signup;
 import sec.project.repository.SignupRepository;
+import sec.project.service.AccountService;
 
 @Controller
 public class SignupController {
@@ -20,8 +21,18 @@ public class SignupController {
 	@Autowired
 	private SignupRepository signupRepository;
 
+	@Autowired
+	private AccountService accountService;
+
 	@RequestMapping("/")
-	public String defaultMapping() {
+	public String defaultMapping(Model model) {
+
+		if (accountService.isLoggedIn()) {
+			model.addAttribute("account", accountService.getAutenticatedUser());
+			System.out.println("logged in");
+			//System.out.println(accountService.getAutenticatedUser().getName());
+		}
+
 		return "index";
 	}
 
