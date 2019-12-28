@@ -34,6 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		http.headers().frameOptions().sameOrigin();
 
+		// FLAW 4: A5:2017-Broken Access Control
 		http.authorizeRequests()
 				.antMatchers("/")
 				.permitAll()
@@ -47,8 +48,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		http.formLogin().permitAll().and().logout().permitAll().logoutUrl("/logout").logoutSuccessUrl("/");
 
-//		// no real security at the moment
-//		http.authorizeRequests().anyRequest().permitAll();
 	}
 
 	@Autowired

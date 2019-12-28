@@ -20,6 +20,7 @@
 
 		<h3>Discussion about the course</h3>
 		<div th:each="feedback : ${course.feedBack}">
+			<!--  FLAW 5: A7:2017-Cross-Site Scripting (XSS) -->
 			<!-- th:utext tag enables XSS (th:text should be user) -->
 			<span th:utext="${feedback}">feedback text</span>
 		</div>

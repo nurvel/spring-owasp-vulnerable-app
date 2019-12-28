@@ -38,6 +38,7 @@ public class CourseController {
 
 		String role = accountService.getAutenticatedUser().getAuthorities().get(0);
 
+		// FLAW 1: A1:2017-Injection
 		String query = "INSERT INTO COURSE_FEED_BACK (course_id, feed_back) VALUES ('" + id + "', '" + role + ": " + feedback + "')";
 		System.out.println(query);
 

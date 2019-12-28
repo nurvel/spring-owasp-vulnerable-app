@@ -32,9 +32,9 @@ public class StudentController {
 
 	@RequestMapping("/student/{id}")
 	public String studentInfo(Model model, @PathVariable Long id) {
-		// Account account accountService.getAutenticatedUser(); // FIX: user the
-		// authenticated user instead of pathvariable id
-		Account account = accountRepository.getOne(id); // FIX: Remove this
+		
+		// FLAW 3: A3:2017-Sensitive Data Exposure
+		Account account = accountRepository.getOne(id);
 		model.addAttribute("account", account);
 		return "student";
 	}
