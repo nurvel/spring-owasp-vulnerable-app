@@ -1,26 +1,44 @@
-# Cyber Security Base 2019 -project
+# Cyber Security Base 2019 -course project
 
 This app is a project created for MOOC course Cyber Security Base 2019-2020.
 
+## Project assignment
+The task is to create a web application that has at least five different flaws from the OWASP top ten list (https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf).
+
 ## Project description
-In the first course project, your task is to create a web application that has at least five different flaws from the OWASP top ten list (https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf).
+
+I created a study register application with two types of users - students and teachers.
+
+Students can see their submissions to courses and what grades they have received. The students can log in and see their own information. There is also a page for the courses where students can give feedback about the courses.
+
+Teachers can got the the "teachers lounge" area where they can give students grades to the courses. Also teachers can participate in the discussion about the courses in the course-pages.
+
+Security flaws enable attacker to..
+- [x] SQL Injection (modify or destroy the database)
+- [x] Steal a cookie form teacher and use the app as a teacher to modify grades
+- [x] Inject malicious code to the page
+- [x] See the grades of other students
 
 
-## Project essay
-LINK: https://github.com/nurvel/spring-owasp-vulnerable-app
+## How to exploit and fix the security flaws
+## LINK: https://github.com/nurvel/spring-owasp-vulnerable-app
 
-The app is created with Spring Boot. You can start up the app in IDE or on command line with '''mvn spring-boot:run'''
-Server will start to port 8080, navigate to localhost:8080.
+### Running and using the appication
+The app is created with Spring Boot. You can start up the app in IDE or on command line with ```mvn spring-boot:run```
+
+Server will start to port 8080.
 To checkout the DB go to localhost:8080/H2-console.
 The database is H2 and will be initialized with necessary data on every startup. If you want to reset, just restart the app.
 
-Log in as student:
-Username: student
-Password: password
+Log in as Student and Teacher with different browsers or using the Incognito-mode for other user:
 
-Log in as teacher:
-Username: teacher
-Password: password
+**Log in as student**
+**Username:** student
+**Password:** password
+
+**Log in as teacher**
+**Username:** teacher
+**Password:** password
 
 
 ### FLAW 1: A1:2017-Injection
@@ -111,7 +129,7 @@ I think i will manage to get 5 form all the courses! <script>document.write(\"<i
 2) Attacker can obtain the session of a teacher by changing the session token in the developer console as described in  FLAW 3: A3:2017-Sensitive Data Exposure
 
 #### How to fix the security flaw in the app
-The thymelead file course.html does not escape the string when rendering the page. This means that the HTML tags are in use and code can be inserted to the page. This can be fixed by using th:text insted of th:utext in the rendering. 
+The thymelead file course.html does not escape the string when rendering the page. This means that the HTML tags are in use and code can be inserted to the page. This can be fixed by using th:text insted of th:utext in the rendering.
 ```
 <span th:text="${feedback}">feedback text</span>
 ```
