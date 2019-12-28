@@ -22,9 +22,9 @@ Security flaws enable attacker to..
 
 
 ## How to exploit and fix the security flaws
-### LINK: https://github.com/nurvel/spring-owasp-vulnerable-app
+### LINK TO REPO: https://github.com/nurvel/spring-owasp-vulnerable-app
 
-### Running and using the appication
+### Running and using the application
 The app is created with Spring Boot. You can start up the app in IDE or on command line with ```mvn spring-boot:run```
 
 Server will start to port 8080.
@@ -51,7 +51,7 @@ interpreter into executing unintended commands or accessing data without proper 
 #### How the security flaw behaves in the app
 In the URL http://localhost:8080/course it is possible to give feedback and have a discussion about the courses. This comment field enables user to inject SQL statements to the database. This is due that the implementation of the database query is done without sanitizing the input from the user.
 
-One can destroy the database by typing the following ):
+One can destroy the database by typing the following to the Feedback field
 ```
 Bye bye courses!') ; DROP TABLE course; --
 ```
@@ -133,7 +133,6 @@ The thymelead file course.html does not escape the string when rendering the pag
 ```
 <span th:text="${feedback}">feedback text</span>
 ```
-
 
 ### FLAW 6: A6:2017-Security Misconfiguration
 #### OWASP description of the security flaw:

@@ -9,14 +9,21 @@
 
 	<div th:fragment="navbar">
 		<nav>
-			<a class="nav-link" href="/">Home</a> <span
-				sec:authorize="isAuthenticated()"> <a class="nav-link"
-				th:href="@{/student/{id}(id=${account.id})}">My Grades</a> <a
-				class="nav-link" href="/course">Courses</a> <a class="nav-link"
-				href="/lounge">Teachers Lounge</a> <a class="nav-link"
-				href="/logout">Logout</a>
-			</span> <span sec:authorize="isAnonymous()"> <a class="nav-link"
-				href="/login">Login</a>
+			<a class="nav-link" href="/">Home</a>
+			<span sec:authorize="isAuthenticated()">
+			
+				<span sec:authorize="hasAuthority('STUDENT')">		
+					<a class="nav-link" th:href="@{/student/{id}(id=${account.id})}">My Grades</a>	
+				</span>
+				<span sec:authorize="hasAuthority('TEACHER')">				
+					<a class="nav-link" href="/lounge">Teachers Lounge</a>
+				</span>
+				<a class="nav-link" href="/course">Courses</a>
+				<a class="nav-link" href="/logout">Logout</a>
+			</span>
+			
+			<span sec:authorize="isAnonymous()">
+				<a class="nav-link" href="/login">Login</a>
 			</span>
 		</nav>
 
