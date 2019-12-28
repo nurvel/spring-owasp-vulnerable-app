@@ -1,6 +1,14 @@
 package sec.project.config;
 
+import java.util.Collections;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.SessionCookieConfig;
+import javax.servlet.SessionTrackingMode;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,7 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true) 
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -55,4 +63,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
+//	@Bean
+//	public ServletContextInitializer servletContextInitializer() {
+//	    return new ServletContextInitializer() {
+//	        @Override
+//	        public void onStartup(ServletContext servletContext) throws ServletException {
+//	            servletContext.setSessionTrackingModes(Collections.singleton(SessionTrackingMode.COOKIE));
+//	            SessionCookieConfig sessionCookieConfig = servletContext.getSessionCookieConfig();
+//	            sessionCookieConfig.setHttpOnly(false);
+//	            sessionCookieConfig.setSecure(false);
+//	        }
+//	    };
+//	}
+	
 }
