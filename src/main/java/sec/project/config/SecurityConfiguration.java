@@ -25,6 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
+		// Settings for h2-console
 		http.csrf().disable();
 		http.headers().frameOptions().sameOrigin();
 

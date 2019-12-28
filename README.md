@@ -34,11 +34,11 @@ The database is H2 and will be initialized with necessary data on every startup.
 Log in as Student and Teacher with different browsers or using the Incognito-mode for other user:
 
 **Log in as student**
-* **Username:** student
+* **Username:** Haxor Student
 * **Password:** password
 
 **Log in as teacher**
-* **Username:** teacher
+* **Username:** Mr. Leet
 * **Password:** password
 
 

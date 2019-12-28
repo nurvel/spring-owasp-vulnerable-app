@@ -3,7 +3,6 @@ package sec.project.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,7 +33,8 @@ public class StudentController {
 	public String studentInfo(Model model, @PathVariable Long id) {
 		
 		// FLAW 3: A3:2017-Sensitive Data Exposure
-		Account account = accountRepository.getOne(id);
+		Account account = accountRepository.getOne(id);	
+		
 		model.addAttribute("account", account);
 		return "student";
 	}

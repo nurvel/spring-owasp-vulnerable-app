@@ -12,29 +12,40 @@
 
 
 	<h1>Welcome to the teachers lounge!</h1>
+	<h3>Give students grades in the courses listed below:</h3>
 
 	<div th:each="course : ${courses}">
 		<h2>
 			<span th:text="${course.name}"> Course </span>
 		</h2>
 
-		<h3>Give student a grade:</h3>
 		<div th:each="submission : ${course.submissions}">
-			<span th:text="${submission.account.name}">Student Name</span>
-			<span th:text="${submission.grade}">Student Grade</span>
-
-			<form action="#" th:action="@{/student/{id}/grade(id=${submission.account.id})}" method="POST">
+			<div>
+				<b>Student:</b> <span th:text="${submission.account.name}">Student
+					Name</span>
+			</div>
+			<div>
+				<b>Student Id:</b> <span th:text="${submission.account.id}">Student
+					Id</span>
+			</div>
+			<div>
+				<b>Grade: </b><span th:text="${submission.grade}">Student
+					Grade</span>
+			</div>
+			<form action="#"
+				th:action="@{/student/{id}/grade(id=${submission.account.id})}"
+				method="POST">
 				<input type="hidden" th:value="${submission.id}" name="submissionid" />
-				<select name="grade">
+				<b>Give a grade: </b> <select name="grade">
 					<option type="text" value="0">0</option>
 					<option type="text" value="1">1</option>
 					<option type="text" value="2">2</option>
 					<option type="text" value="3">3</option>
 					<option type="text" value="4">4</option>
 					<option type="text" value="5">5</option>
-				</select>
-				<input type="submit" value="Update grade" />
+				</select> <input type="submit" value="Update grade" />
 			</form>
+			</br>
 		</div>
 
 	</div>
