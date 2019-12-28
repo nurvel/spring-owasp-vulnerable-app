@@ -23,6 +23,7 @@ In a nutshell security flaws enable attacker to..
 
 ## How to exploit and fix the security flaws
 ### LINK TO REPO: https://github.com/nurvel/spring-owasp-vulnerable-app
+### APP IN HEROKU: https://lit-meadow-91898.herokuapp.com/
 
 ### Running and using the application
 The app is created with Spring Boot. You can start up the app in IDE or on command line with ```mvn spring-boot:run```
