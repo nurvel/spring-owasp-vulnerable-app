@@ -26,8 +26,9 @@
 	<h2>Courses and grades:</h2>
 	<div th:each="courseSubmission : ${account.courseSubmissions}">
 		<b>Course:</b> <span th:text="${courseSubmission.course.name}"> Course
-			name</span> <b> Grade :  </b><span th:text="${courseSubmission.grade}"> Course
+			name</span> <b>  </br>Grade :  </b><span th:text="${courseSubmission.grade}"> Course
 			grade</span>
+			</br></br>
 	</div>
 
 

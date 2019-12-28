@@ -40,7 +40,7 @@ public class CyberSecurityBaseProjectApplication {
 	@EventListener(ApplicationReadyEvent.class)
 	public void initAfterStartup() {
 
-		String password = passwordEncoder.encode("salasana");
+		String password = passwordEncoder.encode("password");
 		List<String> studentAuths = Arrays.asList(new String[] { "STUDENT" });
 		List<String> teacherAuths = Arrays.asList(new String[] { "TEACHER" });
 
