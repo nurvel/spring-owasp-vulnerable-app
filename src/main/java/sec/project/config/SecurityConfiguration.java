@@ -41,14 +41,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				.antMatchers("/h2-console", "/h2-console/**")
 				.permitAll()
-	            //.antMatchers(HttpMethod.GET, "/lounge").hasAnyAuthority("TEACHER")
+				//.antMatchers(HttpMethod.GET, "/lounge").hasAnyAuthority("TEACHER")
 				.anyRequest()
 				.authenticated();
-		
-		http.formLogin().permitAll().and()
-			.logout().permitAll()
-			.logoutUrl("/logout")
-			.logoutSuccessUrl("/");
+
+		http.formLogin().permitAll().and().logout().permitAll().logoutUrl("/logout").logoutSuccessUrl("/");
 
 //		// no real security at the moment
 //		http.authorizeRequests().anyRequest().permitAll();
@@ -63,18 +60,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-//	@Bean
-//	public ServletContextInitializer servletContextInitializer() {
-//	    return new ServletContextInitializer() {
-//	        @Override
-//	        public void onStartup(ServletContext servletContext) throws ServletException {
-//	            servletContext.setSessionTrackingModes(Collections.singleton(SessionTrackingMode.COOKIE));
-//	            SessionCookieConfig sessionCookieConfig = servletContext.getSessionCookieConfig();
-//	            sessionCookieConfig.setHttpOnly(false);
-//	            sessionCookieConfig.setSecure(false);
-//	        }
-//	    };
-//	}
-	
+
 }
