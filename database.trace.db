@@ -15110,3 +15110,12 @@ select coursesubm0_.account_id as account_3_5_0_, coursesubm0_.id as id1_5_0_, c
 2019-12-28 13:25:22 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "COURSE" not found; SQL statement:
 select course0_.id as id1_2_, course0_.name as name2_2_ from course course0_ [42102-197]
+2019-12-28 16:34:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" not found; SQL statement:
+select course0_.id as id1_2_, course0_.name as name2_2_ from course course0_ [42102-197]
+2019-12-28 16:35:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" not found; SQL statement:
+select course0_.id as id1_2_, course0_.name as name2_2_ from course course0_ [42102-197]
+2019-12-28 16:35:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" not found; SQL statement:
+select course0_.id as id1_2_, course0_.name as name2_2_ from course course0_ [42102-197]
