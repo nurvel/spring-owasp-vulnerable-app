@@ -14,7 +14,7 @@ Students can see their submissions to courses and what grades they have received
 
 Teachers can got the the "teachers lounge" area where they can give students grades to the courses. Also teachers can participate in the discussion about the courses in the course-pages.
 
-Security flaws enable attacker to..
+In a nutshell security flaws enable attacker to..
 - [x] SQL Injection (modify or destroy the database)
 - [x] Steal a cookie form teacher and use the app as a teacher to modify grades
 - [x] Inject malicious code to the page
@@ -91,7 +91,7 @@ http://localhost:8080/student/INSERT_ID_HERE
 ```
 
 #### How to fix the security flaw in the app
-The request is handeled in the StudentController-class method studentInfo. There should be validation that the logged in student is the actual student that matches the id. The authenticated user can be obtained with the code below. This also makes makes the id-parameter in the URL obsolete in this use case.
+The request is handeled in the StudentController-class method studentInfo. There should be validation that the logged in student is the actual student that matches the id. The authenticated user can be obtained with the code below. This also makes makes the id-parameter in the URL obsolete in this use case. (It is also possible not to use running numbers as ID, but some other more cryptic string)
 ```
 Account account =  accountService.getAutenticatedUser();
 ```
@@ -120,7 +120,7 @@ victim’s browser which can hijack user sessions, deface web sites, or redirect
 malicious sites.
 
 #### How the security flaw behaves in the app
-Users can comment the courses in the URL http://localhost:8080/course . The comments that are presented in the page are not sanitized for XSS, meaning that the user can inject JavaScript to the page. This voulnerability together with the session-cookie manipulation in the part FLAW 3: A3:2017-Sensitive Data Exposure enables the attacker to steal identity of a Teacher and manipulate grades.
+Users can comment the courses in the URL http://localhost:8080/course . The comments that are presented in the page are not sanitized for XSS, meaning that the user can inject JavaScript to the page. This vulnerability together with the session-cookie manipulation in the part FLAW 3: A3:2017-Sensitive Data Exposure enables the attacker to steal identity of a Teacher and manipulate grades.
 
 1) Inject a JavaScript that sends the session cookie to malicious URL to the hacker. This has been done already by some user! Look at the developer console and network tab. Your session cookie is sent to the hacker :/ The injected string is a picture that is hidden from view:
 ```
@@ -145,7 +145,7 @@ be patched and upgraded in a timely fashion.
 #### How the security flaw behaves in the app
 H2 data base URL not secured and using default password.
 #### How to fix the security flaw in the app
-Change default password to H2
+Change default password to H2. Also disable the access to the URL for other that admin users.
 
 ### FLAW 7: A10:2017-Insufficient Logging & Monitoring
 #### OWASP description of the security flaw:
