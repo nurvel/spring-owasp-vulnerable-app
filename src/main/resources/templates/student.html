@@ -12,6 +12,11 @@
 
 	<h1>Student information</h1>
 
+	Authenticated username:
+	<div sec:authentication="name"></div>
+	Authenticated user roles:
+	<div sec:authentication="principal.authorities"></div>
+
 	Student name:
 	<span th:text="${account.name}"> Name </span> Student id:
 	<span th:text="${account.id}"> Name </span>

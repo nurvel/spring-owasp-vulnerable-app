@@ -3,6 +3,8 @@ package sec.project.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,14 +39,15 @@ public class StudentController {
 		return "student";
 	}
 
+ 
+	@PreAuthorize("hasAuthority('TEACHER')")
 	@PostMapping("/student/{id}/grade")
 	public String lounge(HttpServletRequest request, @RequestParam Long submissionid, @RequestParam Integer grade, @PathVariable Long id) {
-
 		CourseSubmission courseSubmission = courseSubmissionRepository.getOne(submissionid);
 		courseSubmission.setGrade(grade);
 		courseSubmissionRepository.save(courseSubmission);
-
 		return "redirect:" + request.getHeader("Referer");
+		
 	}
 
 }
